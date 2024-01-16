@@ -1,0 +1,43 @@
+# Webcam Object Detection with AI
+
+## Introduction
+This code implements a simple webcam-based object detection system using JavaScript. It utilizes the WebRTC API to access the user's camera and performs object detection on the video stream using a pre-trained model.
+
+## Code Structure
+
+### HTML Elements
+- `ai`: Checkbox input for enabling/disabling AI-based object detection.
+- `fps`: Range input for adjusting frames per second (FPS) of the video stream.
+- `video`: HTML5 video element for displaying the camera feed.
+- `c1`: HTML5 canvas element for drawing the video frames.
+
+### Event Listeners
+1. `change`: Listens for changes in the AI checkbox and triggers the `toggleAi` function.
+2. `input`: Listens for changes in the FPS range input and triggers the `changeFps` function.
+
+### Variables
+- `video`: Holds the reference to the video element.
+- `c1`: Holds the reference to the canvas element.
+- `ctx1`: Context for the canvas for drawing.
+- `cameraAvailable`: Tracks the availability of the camera.
+- `aiEnabled`: Tracks whether AI-based object detection is enabled.
+- `fps`: Frames per second for the video stream.
+
+### Constraints
+- `facingMode`: Specifies whether to use the front or back camera.
+- `constraints`: Object containing audio and video constraints for `getUserMedia` function.
+
+### Functions
+1. **camera()**: Initializes the camera by accessing the user's media devices and setting up the video stream.
+2. **timerCallback()**: Periodically captures frames from the video stream and triggers object detection if AI is enabled.
+3. **isReady()**: Checks if the model is loaded and the camera is available, enabling/disabling UI elements accordingly.
+4. **setResolution()**: Adjusts the canvas resolution based on the screen size and video stream dimensions.
+5. **toggleAi()**: Toggles the `aiEnabled` variable based on the state of the AI checkbox.
+6. **changeFps()**: Adjusts the frames per second based on the value of the FPS range input.
+7. **ai()**: Performs object detection on the canvas using a pre-trained model, displaying bounding boxes and labels.
+
+## Usage
+1. Open the HTML file in a browser that supports WebRTC.
+2. Allow camera access when prompted.
+3. Use the AI checkbox to enable/disable object detection.
+4. Adjust the FPS range for real-time video stream speed.
